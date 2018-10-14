@@ -201,11 +201,9 @@ echo"</ul>
 
        }
 
-     }elseif ($tipo==$filtro_tipo && $filtro_ciudad==""){
-        
-           if($precio<$precio_alto && $precio>$precio_bajo){
-
-              //imprimimos
+     }else{
+           if($filtro_ciudad==""&& $filtro_tipo==""&&$precio<$precio_alto && $precio>$precio_bajo){
+            //imprimimos
 echo "<div class='colContenido'>
 <div class='tituloContenido'>
 <div class='itemMostrado'>
@@ -223,8 +221,7 @@ echo"</ul>
 </div>
 </div>";
 
-          }
-        }
+           }
         }
 
      }
