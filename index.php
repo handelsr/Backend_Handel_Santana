@@ -74,6 +74,194 @@
 </div>
 
 -->
+
+<?php
+
+if(isset($_GET['todos'])){
+  $data=file_get_contents("data-1.json");
+  $propiedades=json_decode($data,true);
+
+
+for($i=0;$i<count($propiedades);$i++) {
+
+     $ciudad=$propiedades[$i]["Ciudad"];
+     $tipo=$propiedades[$i]["Tipo"];
+     $precio=$propiedades[$i]["Precio"];
+     $direccion=$propiedades[$i]["Direccion"];
+     $codigo_postal=$propiedades[$i]["Codigo_Postal"];
+     $telefono=$propiedades[$i]["Telefono"];
+
+     //$precio=str_replace("$","",$precio);
+
+
+//imprimimos
+echo "<div class='colContenido'>
+<div class='tituloContenido'>
+<div class='itemMostrado'>
+<img src='img/home.jpg'>
+<ul>
+<p><strong>Direccion:</strong>".$direccion."</p>";
+
+echo "<p><strong>Ciudad:</strong>".$ciudad."</p>";
+echo"<p><strong>Telefono:</strong>".$telefono."</p>";
+echo"<p><strong>Codigo Postal:</strong>".$codigo_postal."</p>";
+echo"<p><strong>Tipo:</strong>".$tipo."</p>";
+echo "<p><strong>Precio:</strong></p> <p class='precioTexto'>"."$".$precio."</p>";
+echo"</ul>
+</div>
+</div>
+</div>";
+
+
+
+}
+
+}
+
+
+
+if(isset($_GET['buscar'])){
+
+
+$data=file_get_contents("data-1.json");
+$propiedades=json_decode($data,true);
+$filtro_ciudad=$_GET['ciudad'];
+$filtro_tipo=$_GET['tipo'];
+$precios=$_GET['precio']; // 200;80000
+
+$precios=explode(";",$precios);
+
+$precio_bajo=$precios[0];
+$precio_alto=$precios[1];
+
+
+for($i=0;$i<count($propiedades);$i++) {
+
+     $ciudad=$propiedades[$i]["Ciudad"];
+     $tipo=$propiedades[$i]["Tipo"];
+     $precio=$propiedades[$i]["Precio"];
+     $direccion=$propiedades[$i]["Direccion"];
+     $codigo_postal=$propiedades[$i]["Codigo_Postal"];
+     $telefono=$propiedades[$i]["Telefono"];
+     $precio=str_replace("$","",$precio);
+
+
+    
+
+if($ciudad==$filtro_ciudad && $tipo==$filtro_tipo){
+
+  if($precio<$precio_alto && $precio>$precio_bajo){
+
+
+//imprimimos
+echo "<div class='colContenido'>
+<div class='tituloContenido'>
+<div class='itemMostrado'>
+<img src='img/home.jpg'>
+<ul>
+<p><strong>Direccion:</strong>".$direccion."</p>";
+
+echo "<p><strong>Ciudad:</strong>".$ciudad."</p>";
+echo"<p><strong>Telefono:</strong>".$telefono."</p>";
+echo"<p><strong>Codigo Postal:</strong>".$codigo_postal."</p>";
+echo"<p><strong>Tipo:</strong>".$tipo."</p>";
+echo "<p><strong>Precio:</strong></p> <p class='precioTexto'>"."$".$precio."</p>";
+echo"</ul>
+</div>
+</div>
+</div>";
+     
+
+}
+
+}else{
+     if($ciudad==$filtro_ciudad && $filtro_tipo==""){
+       if($precio<$precio_alto && $precio>$precio_bajo){
+           //si la ciudad o el tipo en los filtros no es igual a alguno de los registros del json, entonces pregunta si la ciudad en algun registro es igual a la ciudad del filtro
+          //de ser asi, pregunta si el precio esta en el rango elegido en el filtro del precio
+        
+             //imprimimos
+echo "<div class='colContenido'>
+<div class='tituloContenido'>
+<div class='itemMostrado'>
+<img src='img/home.jpg'>
+<ul>
+<p><strong>Direccion:</strong>".$direccion."</p>";
+
+echo "<p><strong>Ciudad:</strong>".$ciudad."</p>";
+echo"<p><strong>Telefono:</strong>".$telefono."</p>";
+echo"<p><strong>Codigo Postal:</strong>".$codigo_postal."</p>";
+echo"<p><strong>Tipo:</strong>".$tipo."</p>";
+echo "<p><strong>Precio:</strong></p> <p class='precioTexto'>"."$".$precio."</p>";
+echo"</ul>
+</div>
+</div>
+</div>";
+
+
+       }
+
+     }elseif ($tipo==$filtro_tipo && $filtro_ciudad==""){
+        
+           if($precio<$precio_alto && $precio>$precio_bajo){
+
+              //imprimimos
+echo "<div class='colContenido'>
+<div class='tituloContenido'>
+<div class='itemMostrado'>
+<img src='img/home.jpg'>
+<ul>
+<p><strong>Direccion:</strong>".$direccion."</p>";
+
+echo "<p><strong>Ciudad:</strong>".$ciudad."</p>";
+echo"<p><strong>Telefono:</strong>".$telefono."</p>";
+echo"<p><strong>Codigo Postal:</strong>".$codigo_postal."</p>";
+echo"<p><strong>Tipo:</strong>".$tipo."</p>";
+echo "<p><strong>Precio:</strong></p> <p class='precioTexto'>"."$".$precio."</p>";
+echo"</ul>
+</div>
+</div>
+</div>";
+
+          }
+        }else{
+           if($filtro_ciudad==""&& $filtro_tipo==""&&$precio<$precio_alto && $precio>$precio_bajo){
+            //imprimimos
+echo "<div class='colContenido'>
+<div class='tituloContenido'>
+<div class='itemMostrado'>
+<img src='img/home.jpg'>
+<ul>
+<p><strong>Direccion:</strong>".$direccion."</p>";
+
+echo "<p><strong>Ciudad:</strong>".$ciudad."</p>";
+echo"<p><strong>Telefono:</strong>".$telefono."</p>";
+echo"<p><strong>Codigo Postal:</strong>".$codigo_postal."</p>";
+echo"<p><strong>Tipo:</strong>".$tipo."</p>";
+echo "<p><strong>Precio:</strong></p> <p class='precioTexto'>"."$".$precio."</p>";
+echo"</ul>
+</div>
+</div>
+</div>";
+
+           }
+        }
+
+     }
+  
+}
+   
+  
+}
+
+
+
+
+
+
+
+
+?>
     </div>
   </div>
 
