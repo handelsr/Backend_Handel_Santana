@@ -49,12 +49,31 @@
     </div>
 
     <div class="colContenido">
+    <form action="index.php" method="get">
       <div class="tituloContenido card">
         <h5>Resultados de la búsqueda:</h5>
         <div class="divider"></div>
-        <button type="button" name="todos" class="btn-flat waves-effect" id="mostrarTodos">Mostrar Todos</button>
+        <button type="submit" name="todos" class="btn-flat waves-effect" id="mostrarTodos">Mostrar Todos</button>
       </div>
+</form>
+<!-- modelo de etiquetas para cada propiedad resultante del filtro 
+<div class="colContenido">
+<div class="tituloContenido">
+<div class="itemMostrado">
+<img src="img/home.jpg">
+<ul>
+<p><strong>Direccion:</strong>#34-5675</p>
+<p><strong>Ciudad:</strong>New York </p>
+<p><strong>Telefono:</strong>747474</p>
+<p><strong>Codigo Postal:</strong>8494 </p>
+<p><strong>Tipo:</strong>Casa </p>
+<p><strong>Precio:</strong></p> <p class="precioTexto">59999</p>
+</ul>
+</div>
+</div>
+</div>
 
+-->
     </div>
   </div>
 
