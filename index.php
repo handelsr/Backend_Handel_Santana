@@ -224,27 +224,7 @@ echo"</ul>
 </div>";
 
           }
-        }else{
-           if($filtro_ciudad==""&& $filtro_tipo==""&&$precio<$precio_alto && $precio>$precio_bajo){
-            //imprimimos
-echo "<div class='colContenido'>
-<div class='tituloContenido'>
-<div class='itemMostrado'>
-<img src='img/home.jpg'>
-<ul>
-<p><strong>Direccion:</strong>".$direccion."</p>";
-
-echo "<p><strong>Ciudad:</strong>".$ciudad."</p>";
-echo"<p><strong>Telefono:</strong>".$telefono."</p>";
-echo"<p><strong>Codigo Postal:</strong>".$codigo_postal."</p>";
-echo"<p><strong>Tipo:</strong>".$tipo."</p>";
-echo "<p><strong>Precio:</strong></p> <p class='precioTexto'>"."$".$precio."</p>";
-echo"</ul>
-</div>
-</div>
-</div>";
-
-           }
+        }
         }
 
      }
