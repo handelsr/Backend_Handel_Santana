@@ -9,10 +9,11 @@
   <link type="text/css" rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/index.css">
   <title>Formulario</title>
 </head>
 
-<body>
+<body background="img/home.jpg">
   <video src="img/video.mp4" id="vidFondo"></video>
 
   <div class="contenedor">
@@ -20,7 +21,7 @@
       <h1>Buscador</h1>
     </div>
     <div class="colFiltros">
-      <form action="buscador.php" method="post" id="formulario">
+      <form action="index.php" method="get" id="formulario">
         <div class="filtrosContenido">
           <div class="tituloFiltros">
             <h5>Realiza una búsqueda personalizada</h5>
@@ -29,12 +30,23 @@
             <label for="selectCiudad">Ciudad:</label>
             <select name="ciudad" id="selectCiudad">
               <option value="" selected>Elige una ciudad</option>
-            </select>
+              <option value="New York">New York</option>
+              <option value="Orlando">Orlando</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Houston">Houston</option>
+              <option value="Washington">Washington</option>
+              <option value="Miami">Miami</option>
+
+              </select>
           </div>
           <div class="filtroTipo input-field">
             <label for="selecTipo">Tipo:</label><br>
             <select name="tipo" id="selectTipo">
               <option value="" selected>Elige un tipo</option>
+              <option value="Apartamento">Apartamento</option>
+              <option value="Casa">Casa</option>
+              <option value="Casa de Campo">Casa de campo</option>
+
             </select>
           </div>
           <div class="filtroPrecio">
@@ -42,7 +54,7 @@
             <input type="text" id="rangoPrecio" name="precio" value="" />
           </div>
           <div class="botonField">
-            <input type="submit" class="btn white" value="Buscar" id="submitButton">
+            <input type="submit" class="btn white" name="buscar" value="Buscar" id="submitButton">
           </div>
         </div>
       </form>
@@ -262,7 +274,10 @@ echo"</ul>
 
 
 ?>
-    </div>
+
+
+
+    </div> 
   </div>
 
   <script type="text/javascript" src="js/jquery-3.0.0.js"></script>
