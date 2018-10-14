@@ -174,13 +174,11 @@ echo"</ul>
 
 }
 
-}else{
-     if($ciudad==$filtro_ciudad && $filtro_tipo==""){
-       if($precio<$precio_alto && $precio>$precio_bajo){
-           //si la ciudad o el tipo en los filtros no es igual a alguno de los registros del json, entonces pregunta si la ciudad en algun registro es igual a la ciudad del filtro
-          //de ser asi, pregunta si el precio esta en el rango elegido en el filtro del precio
+}elseif ($tipo==$filtro_tipo && $filtro_ciudad==""){
         
-             //imprimimos
+           if($precio<$precio_alto && $precio>$precio_bajo){
+
+              //imprimimos
 echo "<div class='colContenido'>
 <div class='tituloContenido'>
 <div class='itemMostrado'>
@@ -198,10 +196,8 @@ echo"</ul>
 </div>
 </div>";
 
-
-       }
-
-     }else{
+          }
+        }else{
            if($filtro_ciudad==""&& $filtro_tipo==""&&$precio<$precio_alto && $precio>$precio_bajo){
             //imprimimos
 echo "<div class='colContenido'>
